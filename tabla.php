@@ -4,8 +4,8 @@ session_start();
 if (empty($_SESSION['active'])) {
     header('location: index.php');
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +13,32 @@ if (empty($_SESSION['active'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/styleTb.css">
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <form method="post">
+        <label for="optionTb">Selecciona una opción:</label>
+        <select id="optionTb" name="optionTb">
+            <?php
+            $titlesTb = showTitlesTable();
+            $titleTb = mysqli_fetch_assoc($titlesTb)
+            echo $titleTb[1];
+            
+            ?>
+        </select>
+
+        <button type="submit">Enviar</button>
+        </form>
+        <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $opcionSeleccionada = $_POST['optionTb'];
+                    echo $opcionSeleccionada;
+            }
+        ?>
+    </div>
+    <div >
     <table>
         <thead>
             <tr>
@@ -24,6 +47,8 @@ if (empty($_SESSION['active'])) {
                 while ($title = mysqli_fetch_assoc($titles)) {
                     echo '<th>' . $title['COLUMN_NAME'] . '</th>';
                 }
+                echo '<th>Eliminar</th>';
+                echo '<th>Editar</th>';
                 ?>
             </tr>
         </thead>
@@ -33,12 +58,16 @@ if (empty($_SESSION['active'])) {
             while ($row = mysqli_fetch_assoc($data)) {
                 echo '<tr>';
                 foreach ($row as $value) {
-                    echo '<td>' . $value . '</td>';
+                    echo '<td>'.$value.'</td>';
                 }
+                echo '<td><a href="">Eliminar</a></td>';
+                echo '<td><a href="">Editar</a></td>';
                 echo '</tr>';
             }
             ?>
         </tbody>
     </table>
+    </div> <br>
+    <div><a href="procesos/LogOut.php">Salir</a></div>
 </body>
 </html>

@@ -31,7 +31,8 @@
 	<form method ="post" action = "index.php">
 		<h2>Login</h2>
 		<label for="username">Username</label>
-		<input type="text" id="username" name="username">
+		<input type="text" id="username" name="username" value="">
+		
 		<label for="password">Password</label>
 		<input type="password" id="password" name="password">
         <div><?php  echo $alert;?></div>
