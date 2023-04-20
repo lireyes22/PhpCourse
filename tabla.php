@@ -18,55 +18,34 @@ if (empty($_SESSION['active'])) {
 </head>
 <body>
     <div>
-        <form method="post">
-        <label for="optionTb">Selecciona una opción:</label>
-        <select id="optionTb" name="optionTb">
-            <?php
-            $titlesTb = showTitlesTable();
-            $titleTb = mysqli_fetch_assoc($titlesTb)
-            echo $titleTb[1];
-            
-            ?>
-        </select>
-
-        <button type="submit">Enviar</button>
-        </form>
-        <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $opcionSeleccionada = $_POST['optionTb'];
-                    echo $opcionSeleccionada;
-            }
-        ?>
-    </div>
-    <div >
-    <table>
-        <thead>
-            <tr>
+        <table>
+            <thead>
+                <tr>
+                    <?php
+                    $titles = showTitles('usuarios');
+                    while ($title = mysqli_fetch_assoc($titles)) {
+                        echo '<th>' . $title['COLUMN_NAME'] . '</th>';
+                    }
+                    echo '<th>Eliminar</th>';
+                    echo '<th>Editar</th>';
+                    ?>
+                </tr>
+            </thead>
+            <tbody>
                 <?php
-                $titles = showTitles('usuarios');
-                while ($title = mysqli_fetch_assoc($titles)) {
-                    echo '<th>' . $title['COLUMN_NAME'] . '</th>';
-                }
-                echo '<th>Eliminar</th>';
-                echo '<th>Editar</th>';
+                    $data = showTable('usuarios');
+                    while ($row = mysqli_fetch_assoc($data)) {
+                        echo '<tr>';
+                        foreach ($row as $value) {
+                            echo '<td>'.$value.'</td>';
+                        }
+                        echo '<td><a href="">Eliminar</a></td>';
+                        echo '<td><a href="">Editar</a></td>';
+                        echo '</tr>';
+                    }
                 ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $data = showTable('usuarios');
-            while ($row = mysqli_fetch_assoc($data)) {
-                echo '<tr>';
-                foreach ($row as $value) {
-                    echo '<td>'.$value.'</td>';
-                }
-                echo '<td><a href="">Eliminar</a></td>';
-                echo '<td><a href="">Editar</a></td>';
-                echo '</tr>';
-            }
-            ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     </div> <br>
     <div><a href="procesos/LogOut.php">Salir</a></div>
 </body>
