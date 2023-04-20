@@ -55,13 +55,13 @@ if (empty($_SESSION['active'])) {
             <tbody>
                 <?php
                 $data = showTable($opcionSeleccionada);
-                while ($row = mysqli_fetch_assoc($data)) {
+                while ($row = mysqli_fetch_row($data)) {
                     echo '<tr>';
                     foreach ($row as $value) {
                         echo '<td>' . $value . '</td>';
                     }
-                    echo '<td><a href="">Eliminar</a></td>';
-                    echo '<td><a href="">Editar</a></td>';
+                    echo '<td><a href="Eliminar.php?id='.$row[0].'">Eliminar</a></td>';
+                    echo '<td><a href="Editar.php?id='.$row[0].'">Editar</a></td>';
                     echo '</tr>';
                 }
                 ?>
@@ -69,6 +69,9 @@ if (empty($_SESSION['active'])) {
         </table>
     </div> <br>
     <div><a href="procesos/LogOut.php">Salir</a></div>
+    <button onclick="alert('¡Hola mundo!')">Haz clica aquí</button>
+    <form method="post"><input class ="tbInputs" type="text" name="id" value="aaa"></form>
+    
 </body>
 
 </html>
