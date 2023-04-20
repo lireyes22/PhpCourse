@@ -30,7 +30,7 @@ if (empty($_SESSION['active'])) {
         <?php
             $titlesTb = showTitlesTable();
             while ($titleTb = mysqli_fetch_assoc($titlesTb)) {
-              echo $titleTb["table_name"] . "<br>";
+                echo $titleTb["table_name"] . "<br>";
             }         
         ?>
     </div> <br> <br> <br>
