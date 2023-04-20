@@ -5,6 +5,7 @@ if (empty($_SESSION['active'])) {
     header('location: index.php');
 }
     $opcionSeleccionada = 'mensajes';
+    $nombreCampoID='idMensaje';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,21 +33,21 @@ if (empty($_SESSION['active'])) {
             <button type="submit">CRUD</button>
         </form>
     </div> <br> <br> <br>
-    <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $opcionSeleccionada = $_POST['optionTb'];
-                //echo $opcionSeleccionada;
-            }
-    ?>
     <div>
         <table>
             <thead>
                 <tr>
                     <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        $opcionSeleccionada = $_POST['optionTb'];
+                    }
                     $titles = showTitles($opcionSeleccionada);
+                    $i = true;
                     while ($title = mysqli_fetch_assoc($titles)) {
                         echo '<th>' . $title['COLUMN_NAME'] . '</th>';
+                        if($i){$nombreCampoID=$title['COLUMN_NAME'];$i=false;}
                     }
+                    $i = true;
                     echo '<th>Eliminar</th>';
                     echo '<th>Editar</th>';
                     ?>
@@ -60,18 +61,21 @@ if (empty($_SESSION['active'])) {
                     foreach ($row as $value) {
                         echo '<td>' . $value . '</td>';
                     }
-                    echo '<td><a href="Eliminar.php?id='.$row[0].'">Eliminar</a></td>';
-                    echo '<td><a href="Editar.php?id='.$row[0].'">Editar</a></td>';
+                    echo '<td><a href="procesos/Eliminar.php?id='.$row[0].'&tabla='.$opcionSeleccionada.'&campo='.$nombreCampoID.'">Eliminar</a></td>';
+                    echo '<td><a href="procesos/Editar.php?id='.$row[0].'&tabla='.$opcionSeleccionada.'&campo='.$nombreCampoID.'">Actualizar</a></td>';
                     echo '</tr>';
                 }
                 ?>
             </tbody>
         </table>
     </div> <br>
-    <div><a href="procesos/LogOut.php">Salir</a></div>
-    <button onclick="alert('¡Hola mundo!')">Haz clica aquí</button>
-    <form method="post"><input class ="tbInputs" type="text" name="id" value="aaa"></form>
-    
+    <div>
+
+    </div>
+    <div>
+        <a href="procesos/LogOut.php">Salir</a><br>
+        <?php echo $opcionSeleccionada; ?>
+    </div>
 </body>
 
 </html>

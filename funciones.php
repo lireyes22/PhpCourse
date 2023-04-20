@@ -30,4 +30,8 @@
         while (mysqli_next_result($conection)) { }
         return $query;
     }
+    function eliminarRegistro($id, $tabla,$columnaId) {
+        global $conection;
+        return mysqli_query($conection, "CALL `eliminarRegistro`($id, '$tabla', '$columnaId')");
+    }
 ?>
