@@ -18,6 +18,23 @@ if (empty($_SESSION['active'])) {
 </head>
 <body>
     <div>
+        <form method="post">
+            <label for="optionTb">Selecciona una opción:</label>
+            <select id="optionTb" name="optionTb">
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+            </select>
+            <button type="submit">Enviar</button>
+            </form>
+        <?php
+            $titlesTb = showTitlesTable();
+            while ($titleTb = mysqli_fetch_assoc($titlesTb)) {
+              echo $titleTb["table_name"] . "<br>";
+            }         
+        ?>
+    </div> <br> <br> <br>
+    <div>
         <table>
             <thead>
                 <tr>
