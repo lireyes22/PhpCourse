@@ -4,7 +4,7 @@ session_start();
 if (empty($_SESSION['active'])) {
     header('location: index.php');
 }
-
+    $opcionSeleccionada = 'mensajes';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,22 +29,21 @@ if (empty($_SESSION['active'])) {
                 }
                 ?>
             </select>
-            <button type="submit">Enviar</button>
+            <button type="submit">CRUD</button>
         </form>
-        
-        <?php
+    </div> <br> <br> <br>
+    <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $opcionSeleccionada = $_POST['optionTb'];
-                    echo $opcionSeleccionada;
+                //echo $opcionSeleccionada;
             }
-        ?>
-    </div> <br> <br> <br>
+    ?>
     <div>
         <table>
             <thead>
                 <tr>
                     <?php
-                    $titles = showTitles('usuarios');
+                    $titles = showTitles($opcionSeleccionada);
                     while ($title = mysqli_fetch_assoc($titles)) {
                         echo '<th>' . $title['COLUMN_NAME'] . '</th>';
                     }
@@ -55,7 +54,7 @@ if (empty($_SESSION['active'])) {
             </thead>
             <tbody>
                 <?php
-                $data = showTable('usuarios');
+                $data = showTable($opcionSeleccionada);
                 while ($row = mysqli_fetch_assoc($data)) {
                     echo '<tr>';
                     foreach ($row as $value) {
