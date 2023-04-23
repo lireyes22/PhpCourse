@@ -8,7 +8,7 @@
     $precio = $_POST['Precio'];
 
     if(actualizarRegistro($cveArticulo, $descripcion, $descuento, $iva, $precio)){
-        header('location: ../tabla.php');
+        header('location: .. /tabla.php');
     }
 
 
