@@ -43,8 +43,6 @@
             <?php 
                 $query = consultaRet($consulta);
                 while($consulta = mysqli_fetch_array($query)){
-                    
-                
             ?>
             <!-- FIN DE PHP -->
             <form method="POST">
