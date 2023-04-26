@@ -39,6 +39,19 @@
                     <th></th>
                 </tr>
             </thead>
+
+            <form method="POST">
+                <tbody>
+                    <td><input type="text" name="cveArticulo" placeholder="Clave Del Articulo"></td>
+                    <td><input type="text" name="descripcion" placeholder="Descripcion"></td>
+                    <td><input type="text" name="descuento" placeholder="Descuento"></td>
+                    <td><input type="text" name="iva" placeholder="IVA"></td>
+                    <td><input type="text" name="Precio" placeholder="Precio"></td>
+                    <td><input type="submit" class="btn btn-agregar" formaction="procesos/btnAgregar.php"></td>
+                    <td><input type="submit" class="btn btn-agregar" value="Buscar" name="Buscar" formaction="tabla.php"></td>
+                </tbody>
+            </form>
+
             <!-- INICIO DE PHP -->
             <?php 
                 $query = consultaRet($consulta);
@@ -63,18 +76,6 @@
             </tbody>
             </form>
             <?php }//fin del while ?>
-            
-            <form method="POST">
-                <tbody>
-                    <td><input type="text" name="cveArticulo"></td>
-                    <td><input type="text" name="descripcion"></td>
-                    <td><input type="text" name="descuento"></td>
-                    <td><input type="text" name="iva"></td>
-                    <td><input type="text" name="Precio"></td>
-                    <td><input type="submit" class="btn btn-agregar" value="Agregar" formaction="procesos/btnAgregar.php"></td>
-                    <td><input type="submit" class="btn btn-agregar" value="Buscar" name="Buscar" formaction="tabla.php"></td>
-                </tbody>
-            </form>
         </table>
     </div>
 </body>
