@@ -48,7 +48,7 @@
                     <td><input type="text" name="iva" placeholder="IVA"></td>
                     <td><input type="text" name="Precio" placeholder="Precio"></td>
                     <td><input type="submit" class="btn btn-agregar" formaction="procesos/btnAgregar.php"></td>
-                    <td><input type="submit" class="btn btn-agregar" value="Buscar" name="Buscar" formaction="tabla.php"></td>
+                    <td><input type="submit" class="btn btn-agregar" name="Buscar" formaction="tabla.php"></td>
                 </tbody>
             </form>
 
