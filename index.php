@@ -1,3 +1,3 @@
 <?php
-    header('location: tabla.php')
+    header('location: tabla.php');
 ?>
