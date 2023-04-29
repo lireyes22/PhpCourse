@@ -1,9 +1,9 @@
 <?php
     function conn(){
-        $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $db = 'ventas';
+        $host = 'mapachitos.cisuktad1m53.us-east-2.rds.amazonaws.com';
+        $user = 'admin';
+        $password = 'mapachitos123';
+        $db = 'Ventas';
         $conection = @mysqli_connect($host, $user, $password, $db);
 
         if(!$conection){
@@ -21,7 +21,7 @@
     }
     function eliminarRegistro($id) {
         $conection = conn();
-        return mysqli_query($conection, "DELETE FROM articulos WHERE cveArticulo = '$id'");
+        return mysqli_query($conection, "DELETE FROM Articulos WHERE cveArticulo = '$id'");
     }
     function insertarRegistro($cveArticulo,$descripcion,$descuento,$iva,$precio) {
         $conection = conn();

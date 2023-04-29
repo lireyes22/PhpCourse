@@ -2,9 +2,9 @@
 <?php 
     include 'funciones.php';
     
-    $consulta = "SELECT * FROM articulos";
+    $consulta = "SELECT * FROM Articulos";
     if(isset($_POST['Buscar'])){
-        $consulta = "SELECT * FROM articulos WHERE cveArticulo LIKE '%". $_POST['cveArticulo']."%' 
+        $consulta = "SELECT * FROM Articulos WHERE cveArticulo LIKE '%". $_POST['cveArticulo']."%' 
         AND descripcion LIKE '%". $_POST['descripcion'] . "%'
         AND descuento LIKE '%". $_POST['descuento'] . "%'
         AND iva LIKE '%". $_POST['iva'] . "%'
