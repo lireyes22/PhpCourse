@@ -11,10 +11,9 @@ include('funciones.php');
         $iva = $_POST['iva'];
         $Precio = $_POST['Precio'];
         $existencias = $_POST['existencia'];
+        
         actualizarRegistro($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias);
     }    
-
-
 
 
 ?>

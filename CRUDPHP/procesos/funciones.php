@@ -40,11 +40,14 @@
     function actualizarRegistro($cveArticulo,$descripcion,$descuento,$iva,$precio,$existencias) {
         $conection = conn();
         $sql = "UPDATE Articulos SET descripcion='$descripcion', descuento='$descuento', iva='$iva', Precio='$precio' WHERE cveArticulo='$cveArticulo'";
+        echo $sql.'<br>';
         if(mysqli_query($conection, $sql)){
             $sql2 = "UPDATE Existencias SET existencia=$existencias WHERE cveArticulo='$cveArticulo'";
+            
             if(mysqli_query($conection, $sql2)){
-                echo"<script>alert('Se ah eliminado el articulo.')</script>";
+                echo"<script>alert('Se ah actualizado el articulo.')</script>";
                 echo"<script  language='javascript'>window.location='../'</script>";
+                
             }
         }
         echo 'error';
