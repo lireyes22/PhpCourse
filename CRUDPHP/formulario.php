@@ -43,7 +43,7 @@
                     <td><input type="text" name="iva" value="<?php echo $consulta['iva']; ?>"></td></tr>
                 <tr>
                     <td><label>Precio:</label></td>
-                    <td><input type="text" name="Precio" value="<?php echo $consulta['Precio']; ?>"></td>
+                    <td><input type="text" name="Precio" value="<?php echo $consulta['precio']; ?>"></td>
                 </tr>
                 <tr>
                     <td><label>Existencia:</label></td>
