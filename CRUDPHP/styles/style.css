@@ -12,7 +12,9 @@
     transform: translateY(-50%);
   }
   .text-input {
-    height: 40px; /* Ajusta la altura deseada */
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
   }
   img{
     height: 40px;

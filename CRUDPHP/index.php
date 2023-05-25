@@ -58,9 +58,9 @@ if (isset($_POST['btnBuscar'])) {
                         <td><input type="text" name="iva" value="<?php echo $consulta['iva']; ?>" class="text-input" readonly></td>
                         <td><input type="text" name="Precio" value="<?php echo $consulta['Precio']; ?>" class="text-input" readonly></td>
                         <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>" class="text-input" readonly></td>
-                        <td><button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php" class="text-input">
+                        <td><button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php">
                             <img src="img/basura.png" alt="Icono"></button></td>
-                        <td><button type="submit" name="btnEditar" formaction="formulario.php" class="text-input">
+                        <td><button type="submit" name="btnEditar" formaction="formulario.php">
                             <img src="img/editar.png" alt="Icono"></button></td>
                     </tbody>
                 </form>

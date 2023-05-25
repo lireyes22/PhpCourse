@@ -20,8 +20,9 @@
 </head>
 
 <body>
-    <a href="index.php">Regresar</a>
+    
     <div>
+        <form> <button formaction="index.php"><img src="img/izquierda.png"></button> </form>
         <label>Articulo</label>
         <form method="POST">
             <table>
@@ -49,9 +50,9 @@
                     <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>"></td>
                 </tr>            
             </table>
-            <button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php" class="text-input">
+            <button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php">
                 <img src="img/basura.png" alt="Icono"></button>
-            <button type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php" class="text-input">
+            <button type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php">
                 <img src="img/actualizar.png" alt="Icono"></button>
         </form>
     </div>
