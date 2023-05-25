@@ -1,9 +1,21 @@
 <?php
 include 'procesos/funciones.php';
 
+#$consulta = "SELECT * FROM Articulos JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo";
+
 $consulta = "SELECT *
-    FROM Articulos
-    JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo";
+		FROM Articulos
+		JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo";
+    if(isset($_POST['btnBuscar'])){
+        $consulta = "SELECT * FROM Articulos JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo WHERE Articulos.cveArticulo LIKE '%". $_POST['cveArticulo']."%' 
+        AND Articulos.descripcion LIKE '%". $_POST['descripcion'] . "%'
+        AND Articulos.descuento LIKE '%". $_POST['descuento'] . "%'
+        AND Articulos.iva LIKE '%". $_POST['iva'] . "%'
+        AND Articulos.Precio LIKE '%". $_POST['Precio'] . "%'
+        AND Existencias.existencia LIKE '%". $_POST['existencia'] . "%'
+        ";
+    }
+    #echo $consulta;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +38,8 @@ $consulta = "SELECT *
                     <th>Iva</th>
                     <th>Precio</th>
                     <th>Existencia</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <!-- INICIO DE PHP -->
@@ -49,9 +61,21 @@ $consulta = "SELECT *
                         <td><input type="submit" name="btnEditar" value="Editar" formaction="formulario.php"></td>
                     </tbody>
                 </form>
-            <?php } //fin del while 
-            ?>
+            <?php }//fin del while ?>
+            <form method="POST">
+                <tbody>
+                    <td><input type="text" name="cveArticulo" value=""></td>
+                    <td><input type="text" name="descripcion" value=""></td>
+                    <td><input type="text" name="descuento" value=""></td>
+                    <td><input type="text" name="iva" value=""></td>
+                    <td><input type="text" name="Precio" value=""></td>
+                    <td><input type="text" name="existencia" value=""></td>
+                    <td><input type="submit" name="btnAgregar" value="Agregar" formaction="procesos/btnAction.php"></td>
+                    <td><input type="submit" name="btnBuscar" value="Search" formaction="index.php"></td>
+                </tbody>
+            </form>
         </table>
+        <form><input type="submit" name="btnReset" value="Reset" formaction="index.php"></form>
     </div>
 </body>
 

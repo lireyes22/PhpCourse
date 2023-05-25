@@ -52,4 +52,18 @@
         }
         echo 'error';
     }
+    function agregarRegistro($cveArticulo,$descripcion,$descuento,$iva,$precio,$existencias) {
+        $conection = conn();
+        $sql = "INSERT INTO Articulos (cveArticulo, descripcion, descuento, iva, Precio) VALUES('$cveArticulo', '$descripcion', '$descuento', '$iva', '$precio')";
+        echo $sql.'<br>';
+        if(mysqli_query($conection, $sql)){
+            $sql2 = "INSERT INTO Existencias (cveArticulo, existencia) VALUES ('$cveArticulo', $existencias)";
+            echo $sql2.'<br>';
+            if(mysqli_query($conection, $sql2)){
+                echo"<script>alert('Se ah agregado el articulo.')</script>";
+                echo"<script  language='javascript'>window.location='../'</script>";
+                
+            } 
+        }
+    }
 ?>

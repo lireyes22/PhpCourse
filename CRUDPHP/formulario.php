@@ -30,22 +30,22 @@
                 </tr>
                 <tr>
                     <td><label>Descripcion:</label></td>
-                    <td><input type="text" name="descripcion" value="<?php echo $consulta['descripcion']; ?>"></td>
+                    <td><input type="text" name="descripcion" value="<?php echo $consulta['descripcion']; ?>" required></td>
                 </tr>
                 <tr>
                     <td><label>Descuento:</label></td>
-                    <td><input type="text" name="descuento" value="<?php echo $consulta['descuento']; ?>"></td>
+                    <td><input type="text" name="descuento" value="<?php echo $consulta['descuento']; ?>" required></td>
                 </tr>
                 <tr>
                     <td><label>Iva:</label></td>
-                    <td><input type="text" name="iva" value="<?php echo $consulta['iva']; ?>"></td></tr>
+                    <td><input type="text" name="iva" value="<?php echo $consulta['iva']; ?>" required></td></tr>
                 <tr>
                     <td><label>Precio:</label></td>
-                    <td><input type="text" name="Precio" value="<?php echo $consulta['Precio']; ?>"></td>
+                    <td><input type="text" name="Precio" value="<?php echo $consulta['Precio']; ?>" required></td>
                 </tr>
                 <tr>
                     <td><label>Existencia:</label></td>
-                    <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>"></td>
+                    <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>" required></td>
                 </tr>            
             </table>
             <input type="submit" value="Eliminar" name="btnEliminar" formaction="procesos/btnAction.php">
