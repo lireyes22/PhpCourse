@@ -1,0 +1,28 @@
+  body{
+    background-color: whitesmoke;
+  }
+  .input-with-icon {
+    position: relative;
+  }
+
+  .input-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  .text-input {
+    height: 40px; /* Ajusta la altura deseada */
+  }
+  img{
+    height: 40px;
+    justify-content: center;
+  }
+  button{
+    border: 0;
+    background: transparent;
+  }
+  button:hover{
+    background-color: #3fe495;
+    border-radius: 10px;
+  }

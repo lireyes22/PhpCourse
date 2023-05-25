@@ -15,6 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Document</title>
 </head>
 
@@ -48,8 +49,10 @@
                     <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>"></td>
                 </tr>            
             </table>
-            <input type="submit" value="Eliminar" name="btnEliminar" formaction="procesos/btnAction.php">
-            <input type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php">
+            <button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php" class="text-input">
+                <img src="img/basura.png" alt="Icono"></button>
+            <button type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php" class="text-input">
+                <img src="img/actualizar.png" alt="Icono"></button>
         </form>
     </div>
 </body>
