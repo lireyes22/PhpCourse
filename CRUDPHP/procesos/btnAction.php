@@ -5,7 +5,7 @@ include('funciones.php');
         if (!empty($cve)) {
             eliminarRegistro($cve);
         }else {
-            echo"<script>alert('No debe haber campos vacios.')</script>";
+            echo"<script>alert('Falta el cve.')</script>";
             echo"<script  language='javascript'>window.location='../'</script>";
         }
     }
