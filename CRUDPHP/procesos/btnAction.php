@@ -14,7 +14,7 @@ include('funciones.php');
         $descripcion = $_POST['descripcion'];
         $descuento = $_POST['descuento'];
         $iva = $_POST['iva'];
-        $Precio = $_POST['Precio'];
+        $Precio = $_POST['precio'];
         $existencias = $_POST['existencia'];
         if (!empty($cveArticulo) && !empty($descripcion) && !empty($descuento) && !empty($iva) && !empty($Precio) && !empty($existencias)) {
             actualizarRegistro($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias);
@@ -28,7 +28,7 @@ include('funciones.php');
         $descripcion = $_POST['descripcion'];
         $descuento = $_POST['descuento'];
         $iva = $_POST['iva'];
-        $Precio = $_POST['Precio'];
+        $Precio = $_POST['precio'];
         $existencias = $_POST['existencia'];
         if (!empty($cveArticulo) && !empty($descripcion) && !empty($descuento) && !empty($iva) && !empty($Precio) && !empty($existencias)) {            
             agregarRegistro($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias);

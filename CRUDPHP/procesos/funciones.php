@@ -46,7 +46,7 @@
     function actualizarRegistro($cveArticulo,$descripcion,$descuento,$iva,$precio,$existencias) {
         try {
             $conection = conn();
-            $sql = "UPDATE Articulos SET descripcion='$descripcion', descuento='$descuento', iva='$iva', Precio='$precio' WHERE cveArticulo='$cveArticulo'";
+            $sql = "UPDATE Articulos SET descripcion='$descripcion', descuento='$descuento', iva='$iva', precio='$precio' WHERE cveArticulo='$cveArticulo'";
             echo $sql.'<br>';
             if(mysqli_query($conection, $sql)){
                 $sql2 = "UPDATE Existencias SET existencia=$existencias WHERE cveArticulo='$cveArticulo'";
@@ -65,7 +65,7 @@
     function agregarRegistro($cveArticulo,$descripcion,$descuento,$iva,$precio,$existencias) {
         try {
             $conection = conn();
-            $sql = "INSERT INTO Articulos (cveArticulo, descripcion, descuento, iva, Precio) VALUES('$cveArticulo', '$descripcion', '$descuento', '$iva', '$precio')";
+            $sql = "INSERT INTO Articulos (cveArticulo, descripcion, descuento, iva, precio) VALUES('$cveArticulo', '$descripcion', '$descuento', '$iva', '$precio')";
             echo $sql.'<br>';
             if(mysqli_query($conection, $sql)){
                 $sql2 = "INSERT INTO Existencias (cveArticulo, existencia) VALUES ('$cveArticulo', $existencias)";
