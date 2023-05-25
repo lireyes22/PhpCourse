@@ -1,10 +1,9 @@
 <?php
     include('procesos/funciones.php');
-
+    
     if(empty($_POST['cveArticulo'])){
         echo"<script  language='javascript'>window.location='index.php'</script>";  
     }
-
 
     $cve = $_POST['cveArticulo'];
     $sql = "SELECT *
@@ -35,32 +34,28 @@
             <table>
                 <tr>
                     <td><label>Cve del Articulo:</label></td>
-                    <td><input type="text" name="cveArticulo" value="<?php echo $consulta['cveArticulo']; ?>" readonly></td>
+                    <td><?php echo $consulta['cveArticulo']; ?></td>
                 </tr>
                 <tr>
                     <td><label>Descripcion:</label></td>
-                    <td><input type="text" name="descripcion" value="<?php echo $consulta['descripcion']; ?>"></td>
+                    <td><?php echo $consulta['descripcion']; ?></td>
                 </tr>
                 <tr>
                     <td><label>Descuento:</label></td>
-                    <td><input type="text" name="descuento" value="<?php echo $consulta['descuento']; ?>"></td>
+                    <td><?php echo $consulta['descuento']; ?></td>
                 </tr>
                 <tr>
                     <td><label>Iva:</label></td>
-                    <td><input type="text" name="iva" value="<?php echo $consulta['iva']; ?>"></td></tr>
+                    <td><?php echo $consulta['iva']; ?></td></tr>
                 <tr>
                     <td><label>Precio:</label></td>
-                    <td><input type="text" name="precio" value="<?php echo $consulta['precio']; ?>"></td>
+                    <td><?php echo $consulta['precio']; ?></td>
                 </tr>
                 <tr>
                     <td><label>Existencia:</label></td>
-                    <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>"></td>
+                    <td><?php echo $consulta['existencia']; ?></td>
                 </tr>            
             </table>
-            <button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php">
-                <img src="img/basura.png" alt="Icono"></button>
-            <button type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php">
-                <img src="img/actualizar.png" alt="Icono"></button>
         </form>
     </div>
 </body>

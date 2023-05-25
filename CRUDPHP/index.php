@@ -29,7 +29,7 @@ if (isset($_POST['btnBuscar'])) {
 </head>
 
 <body>
-    <div>
+    <div class="divxd">
         <table>
             <thead>
                 <tr>
@@ -39,8 +39,6 @@ if (isset($_POST['btnBuscar'])) {
                     <th>Iva</th>
                     <th>precio</th>
                     <th>Existencia</th>
-                    <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <!-- INICIO DE PHP -->
@@ -62,6 +60,8 @@ if (isset($_POST['btnBuscar'])) {
                             <img src="img/basura.png" alt="Icono"></button></td>
                         <td><button type="submit" name="btnEditar" formaction="formulario.php">
                             <img src="img/editar.png" alt="Icono"></button></td>
+                        <td><button type="submit" name="btnVisualizar" formaction="formularioV.php">
+                            <img src="img/ojo.png" alt="Icono"></button></td>
                     </tbody>
                 </form>
             <?php } //fin del while 
@@ -78,13 +78,13 @@ if (isset($_POST['btnBuscar'])) {
                         <img src="img/agregar-archivo.png" alt="Icono"></button></td>
                     <td><button type="submit" name="btnBuscar" formaction="index.php" class="submit-button">
                         <img src="img/buscar.png" alt="Icono"></button></td>
+                    <td><button type="submit" formaction="index.php" class="submit-button">
+                        <img src="img/cargando.png" alt="Icono"></button></td>
                 </tbody>
             </form>
         </table>
-        <form><button type="submit" formaction="index.php" class="submit-button">
-                <img src="img/cargando.png" alt="Icono">
-            </button></form>
     </div>
+    <form></form>
 </body>
 
 </html>

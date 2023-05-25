@@ -1,5 +1,17 @@
   body{
-    background-color: whitesmoke;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ca9f4c, #8e3b66);
+  }
+  .divxd {
+    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+  }
+  th{
+    background: whitesmoke;
+    border-radius: 10px;
   }
   .input-with-icon {
     position: relative;
@@ -15,6 +27,7 @@
     height: 40px;
     border: 1px solid black;
     border-radius: 10px;
+    
   }
   img{
     height: 40px;
@@ -27,4 +40,7 @@
   button:hover{
     background-color: #3fe495;
     border-radius: 10px;
+  }
+  thead{
+    background-color: aliceblue;
   }
