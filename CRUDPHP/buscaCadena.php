@@ -3,7 +3,8 @@ include 'procesos/funciones.php';
 
 #$consulta = "SELECT * FROM Articulos JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo";
 
-$consulta = "SELECT * FROM Articulos WHERE Articulos.descripcion LIKE '" . $_POST['Nombre'] . "%'";
+$consulta = "SELECT * FROM Articulos WHERE Articulos.descripcion LIKE '" . $_POST['Nombre'] . "%' ORDER BY Articulos.descripcion ASC";
+    #echo $consulta;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,9 +42,7 @@ $consulta = "SELECT * FROM Articulos WHERE Articulos.descripcion LIKE '" . $_POS
                     </tbody>
                 </form>
             <?php } //fin del while 
-            if($bn){ echo"<script>alert('No hay datos')</script>";
-                echo "<button><a href='buscarArt.html' style='text-decoration:none; background: red;'>Regresar</a></button>";#No se si va este, pero ahi decia xd
-            }
+            if($bn){ echo"<script>alert('No hay datos')</script>";}
             ?>
         </table> <br>
         <button><a href="buscarArt.html" style="text-decoration:none">Realizar otra busqueda</a></button>
