@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Articulos (
     descripcion varchar(50),
     descuento int(2),
     iva int(2),
-    Precio float(3)
+    precio float(3)
 );
 
 CREATE TABLE IF NOT EXISTS Existencias (
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Existencias (
     FOREIGN KEY (cveArticulo) REFERENCES Articulos(cveArticulo) ON DELETE CASCADE
 );
 
-INSERT INTO Articulos (cveArticulo, descripcion, descuento, iva, Precio) VALUES 
+INSERT INTO Articulos (cveArticulo, descripcion, descuento, iva, precio) VALUES 
 ('ART-001', 'Laptop HP', 10, 16, 15000.00),
 ('ART-002', 'Teléfono Samsung', 5, 16, 8000.00),
 ('ART-003', 'Impresora Epson', 15, 16, 5000.00),
