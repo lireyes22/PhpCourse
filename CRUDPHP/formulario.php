@@ -14,9 +14,6 @@
     } else {
         $flag = false;
     }
-    
-    
-    
 
 ?>
 <!DOCTYPE html>
