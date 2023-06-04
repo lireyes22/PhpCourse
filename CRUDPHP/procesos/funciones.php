@@ -47,7 +47,7 @@
         try {
             $conection = conn();
             $sql = "UPDATE Articulos SET descripcion='$descripcion', descuento='$descuento', iva='$iva', precio='$precio' WHERE cveArticulo='$cveArticulo'";
-            echo $sql.'<br>';
+            #echo $sql.'<br>';
             if(mysqli_query($conection, $sql)){
                 $sql2 = "UPDATE Existencias SET existencia=$existencias WHERE cveArticulo='$cveArticulo'";
                 
@@ -66,10 +66,10 @@
         try {
             $conection = conn();
             $sql = "INSERT INTO Articulos (cveArticulo, descripcion, descuento, iva, precio) VALUES('$cveArticulo', '$descripcion', '$descuento', '$iva', '$precio')";
-            echo $sql.'<br>';
+            #echo $sql.'<br>';
             if(mysqli_query($conection, $sql)){
                 $sql2 = "INSERT INTO Existencias (cveArticulo, existencia) VALUES ('$cveArticulo', $existencias)";
-                echo $sql2.'<br>';
+                #echo $sql2.'<br>';
                 if(mysqli_query($conection, $sql2)){
                     echo"<script>alert('Se ah agregado el articulo.')</script>";
                     echo"<script  language='javascript'>window.location='../'</script>";

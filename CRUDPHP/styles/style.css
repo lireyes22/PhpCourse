@@ -1,15 +1,15 @@
   body{
     height: 100vh;
-    background: linear-gradient(to bottom, #ca9f4c, #8e3b66);
+    font-weight: bold;  
+    background: linear-gradient(to bottom, #aaa, #000);
   }
   .divxd {
-    
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;  
   }
-  th{
+  th, td.widerow{
     background: whitesmoke;
     border-radius: 10px;
   }
@@ -27,7 +27,8 @@
     height: 40px;
     border: 1px solid black;
     border-radius: 10px;
-    
+    font-weight: bold;    
+    padding: 0 0 0 10px;
   }
   img{
     height: 40px;
@@ -43,4 +44,11 @@
   }
   thead{
     background-color: aliceblue;
+  }
+  input.changed {
+    background-color: yellow;
+  }
+  .widerow{
+    width: 180px;
+    text-align: center;
   }

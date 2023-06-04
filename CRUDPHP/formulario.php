@@ -1,17 +1,21 @@
 <?php
     include('procesos/funciones.php');
 
-    if(empty($_POST['cveArticulo'])){
-        echo"<script  language='javascript'>window.location='index.php'</script>";  
+    if(!isset($_POST['btnAdd'])) {
+        if(empty($_POST['cveArticulo'])){
+            echo"<script  language='javascript'>window.location='index.php'</script>";  
+        }
+        $cve = $_POST['cveArticulo'];
+        $sql = "SELECT *
+        FROM Articulos
+        JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo WHERE Articulos.cveArticulo = '$cve'";
+        $consulta = mysqli_fetch_array(consultaRet($sql));
+        $flag = true;
+    } else {
+        $flag = false;
     }
-
-
-    $cve = $_POST['cveArticulo'];
-    $sql = "SELECT *
-    FROM Articulos
-    JOIN Existencias ON Articulos.cveArticulo = Existencias.cveArticulo WHERE Articulos.cveArticulo = '$cve'";
-
-    $consulta = mysqli_fetch_array(consultaRet($sql));
+    
+    
     
 
 ?>
@@ -28,40 +32,45 @@
 
 <body>
     
-    <div>
-        <form> <button formaction="index.php"><img src="img/izquierda.png"></button> </form>
-        <label>Articulo</label>
-        <form method="POST">
+    <div class="divxd">
+        <form method="POST"><fieldset>
+            <Legend>Articulo</Legend>
             <table>
                 <tr>
-                    <td><label>Cve del Articulo:</label></td>
-                    <td><input type="text" name="cveArticulo" value="<?php echo $consulta['cveArticulo']; ?>" readonly></td>
+                    <td class="widerow">Cve del Articulo:</td>
+                    <td><input type="text" name="cveArticulo" value="<?php echo $flag ? $consulta['cveArticulo'] : ''; ?>" <?php echo $flag ? 'readonly' : ''?>></td>
                 </tr>
                 <tr>
-                    <td><label>Descripcion:</label></td>
-                    <td><input type="text" name="descripcion" value="<?php echo $consulta['descripcion']; ?>"></td>
+                    <td class="widerow">Descripcion:</td>
+                    <td><input type="text" name="descripcion" value="<?php echo $flag ? $consulta['descripcion'] : ''; ?>"></td>
                 </tr>
                 <tr>
-                    <td><label>Descuento:</label></td>
-                    <td><input type="text" name="descuento" value="<?php echo $consulta['descuento']; ?>"></td>
+                    <td class="widerow">Descuento:</td>
+                    <td><input type="number" min ="0" name="descuento" value="<?php echo $flag ? $consulta['descuento'] : ''; ?>"></td>
                 </tr>
                 <tr>
-                    <td><label>Iva:</label></td>
-                    <td><input type="text" name="iva" value="<?php echo $consulta['iva']; ?>"></td></tr>
+                    <td class="widerow">Iva:</td>
+                    <td><input type="number" min ="0" name="iva" value="<?php echo $flag ? $consulta['iva'] : ''; ?>"></td></tr>
                 <tr>
-                    <td><label>Precio:</label></td>
-                    <td><input type="text" name="precio" value="<?php echo $consulta['precio']; ?>"></td>
+                    <td class="widerow">Precio:</td>
+                    <td><input type="number" min ="0" name="precio" value="<?php echo $flag ? $consulta['precio'] : ''; ?>"></td>
                 </tr>
                 <tr>
-                    <td><label>Existencia:</label></td>
-                    <td><input type="text" name="existencia" value="<?php echo $consulta['existencia']; ?>"></td>
+                    <td class="widerow">Existencia:</td>
+                    <td><input type="number" min ="0" name="existencia" value="<?php echo $flag ? $consulta['existencia'] : ''; ?>"></td>
                 </tr>            
             </table>
-            <button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php">
-                <img src="img/basura.png" alt="Icono"></button>
-            <button type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php">
-                <img src="img/actualizar.png" alt="Icono"></button>
-        </form>
+            <button formaction="index.php"><img src="img/izquierda.png"></button>
+            <?php if (!isset($_POST['btnVisualizar'])) { if ($flag) {?>
+                <button type="submit" name="btnEliminar" value="Eliminar" formaction="procesos/btnAction.php">
+                    <img src="img/basura.png" alt="Icono"></button>
+                <button type="submit" value="Actualizar" name="btnActualizar" formaction="procesos/btnAction.php">
+                    <img src="img/actualizar.png" alt="Icono"></button>
+            <?php } else {?>
+                <button type="submit" name="btnAgregar" formaction="procesos/btnAction.php" class="submit-button">
+                        <img src="img/add.png" alt="Icono"></button>
+            <?php }} ?>
+        </fieldset></form>
     </div>
 </body>
 
