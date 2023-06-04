@@ -81,4 +81,7 @@
             echo"<script  language='javascript'>window.location='../'</script>";
         }
     }
+    function comprobarCampos($cveArticulo, $descripcion, $descuento, $iva, $Precio, $existencias){
+        return (!empty($cveArticulo) && !empty($descripcion) && $descuento>-1 && $iva>-1 && $Precio>-1 && $existencias>-1);
+    }
 ?>

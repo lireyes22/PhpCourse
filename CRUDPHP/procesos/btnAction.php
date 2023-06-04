@@ -17,7 +17,8 @@ include('funciones.php');
         $Precio = $_POST['precio'];
         $existencias = $_POST['existencia'];
         #echo $cveArticulo.'<br>'.$descripcion.'<br>'.$descuento.'<br>'.$iva.'<br>'.$Precio.'<br>'.$existencias;
-        if (!empty($cveArticulo) && !empty($descripcion) && !empty($descuento) && !empty($iva) && !empty($Precio) && !empty($existencias)) {
+        if (comprobarCampos($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias)) {
+
             actualizarRegistro($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias);
         }else {
             echo"<script>alert('No debe haber campos vacios o mal escritos.')</script>";
@@ -31,11 +32,12 @@ include('funciones.php');
         $iva = $_POST['iva'];
         $Precio = $_POST['precio'];
         $existencias = $_POST['existencia'];
-        if (!empty($cveArticulo) && !empty($descripcion) && !empty($descuento) && !empty($iva) && !empty($Precio) && !empty($existencias)) {            
+        if (comprobarCampos($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias)) {
             agregarRegistro($cveArticulo, $descripcion, $descuento, $iva, $Precio,$existencias);
         } else {
             echo"<script>alert('No debe haber campos vacios o mal escritos.')</script>";
             echo"<script  language='javascript'>window.location='../'</script>";
         }
     }  
+    
 ?>
