@@ -29,6 +29,10 @@ if (isset($_POST['btnBuscar'])) {
 </head>
 
 <body>
+    <div class="divxdmenu"><form>
+        <button type="submit" name="" formaction="BuscarArt.html" class="submit-menu"> EXAMEN </button>
+        <button type="submit" name="" formaction="capinv.html" class="submit-menu"> EJERCICIO </button>
+    </form></div>
     <div class="divxd">
         <table>
             <thead>
@@ -87,7 +91,6 @@ if (isset($_POST['btnBuscar'])) {
             </form>
         </table>
     </div>
-    
 </body>
 
 </html>
